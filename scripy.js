@@ -1,7 +1,7 @@
-
 const btn = document.getElementById('download-btn');
 btn.addEventListener('click', () => {
-  alert('Іде завантаження');
+  const messageElement = document.getElementById('message');
+  messageElement.textContent = 'Іде завантаження';
   setTimeout(() => {
     const fileContent = 'Віруса точно немає';
     const blob = new Blob([fileContent], { type: 'text/plain' });
@@ -11,14 +11,8 @@ btn.addEventListener('click', () => {
     a.download = 'filename.txt';
     a.click();
     URL.revokeObjectURL(url);
+    messageElement.textContent = 'Завантаження завершено';
   }, 4000);
 });
-
-
-
-
-
-
-
 
 
